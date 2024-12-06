@@ -1,0 +1,47 @@
+.sentiment-indicator {
+    width: 100%;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sentiment-bar {
+    position: relative;
+    height: 30px;
+    background-color: lightgray;
+    border-radius: 15px;
+    overflow: hidden;
+    color: #002f5e;
+}
+
+.sentiment-fill {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+    border-radius: 15px;
+}
+
+.sentiment-value {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.sentiment-gauge {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.sentiment-gauge-chart {
+    width: 60%;
+}
+
+.sentiment-description {
+    width: 40%;
+}
+
+p {
+    margin: 0px;
+}

@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfiles/frontend.Dockerfile
+    ports:
+      - "3000:80"  # Map Nginx container port 80 to host port 3000
+    depends_on:
+      - backend
+    networks:
+      - crypto-network
+
+  crawler:
+    build:
+      context: .
+      dockerfile: Dockerfiles/crawler.Dockerfile
+    environment:
+      - MONGO_HOST=nosql
+      - MONGO_PORT=27017
+      - MONGO_DB_NAME=cryptoboard
+    depends_on:
+      - backend
+    networks:
+      - crypto-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfiles/backend.Dockerfile
+    ports:
+      - "8000:8000"  # Expose Django server on port 8000
+    depends_on:
+      - nosql
+    environment:
+      - MONGO_DB_NAME=cryptoboard
+      - MONGO_HOST=nosql
+      - MONGO_PORT=27017
+    networks:
+      - crypto-network
+
+  nosql:
+    build:
+      context: .
+      dockerfile: Dockerfiles/database.Dockerfile
+    volumes:
+      - nosql_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=cryptoboard
+    ports:
+      - "27017:27017"  # Expose MongoDB port to the host
+    networks:
+      - crypto-network
+    entrypoint: ["/bin/bash", "-c", "rm -rf /data/db/* && docker-entrypoint.sh mongod"]
+
+volumes:
+  nosql_data:  # Persistent storage for MongoDB
+
+networks:
+  crypto-network:
+    driver: bridge
