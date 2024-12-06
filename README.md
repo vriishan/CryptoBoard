@@ -1,4 +1,4 @@
-# CSCI578-CryptoBoard
+# CryptoBoard
 
 By:
 Aditya Dhage (adhage@usc.edu)
@@ -25,8 +25,6 @@ http://localhost:3000
 
 To view contents
 
-Library used in this project:
+Libraries used in this project:
 
-[React](https://react.dev/), [React Router](https://reactrouter.com/), [Material UI](https://mui.com/material-ui/getting-started/), [dayjs](https://day.js.org/), [react-gauge-chart](https://github.com/Martin36/react-gauge-chart)
-
-[Django](https://www.djangoproject.com/), [Pymongo](https://pymongo.readthedocs.io/en/stable/), [MongoDB](https://www.mongodb.com), [TextBlob](https://github.com/sloria/textblob)
+[React](https://react.dev/), [React Router](https://reactrouter.com/), [Material UI](https://mui.com/material-ui/getting-started/), [dayjs](https://day.js.org/), [react-gauge-chart](https://github.com/Martin36/react-gauge-chart), [Django](https://www.djangoproject.com/), [Pymongo](https://pymongo.readthedocs.io/en/stable/), [MongoDB](https://www.mongodb.com), [TextBlob](https://github.com/sloria/textblob)
